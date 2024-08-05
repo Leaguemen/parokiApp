@@ -1,0 +1,27 @@
+.tableContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    font-size: 36px;
+    font-weight: bold;
+    color: #435325;
+}
+
+
+@media (max-width: 800px){
+    .title{
+        font-size: 30px;
+    }
+}
+
+
+@media (max-width: 450px){
+    .title{
+        font-size: 24px;
+    }
+}

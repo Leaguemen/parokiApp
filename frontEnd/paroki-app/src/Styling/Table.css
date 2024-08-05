@@ -1,0 +1,50 @@
+table {
+    width: 800px;
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  th,
+  td {
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+  }
+  th {
+    text-align: center;
+  }
+  thead th {
+    background-color: #556b2f;
+    ;
+  }
+  tbody td {
+    position: relative;
+  }
+
+.dataOrang{
+    color: #556b2f;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+.container{
+    padding-top: 15px;
+}
+
+@media (max-width: 800px){
+    table{
+        font-size: 15px;
+        width: 600px;
+    }
+}
+
+
+@media (max-width: 450px){
+    table{
+        font-size: 10px;
+        width: 300px;
+    }
+}
+
