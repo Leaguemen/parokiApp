@@ -6,10 +6,18 @@ export function Postingan(){
     const [posts,setPosts] = React.useState([]);
 
     React.useEffect(()=>{
-        fetch("/postingan")
+        fetch(`${process.env.REACT_APP_API_URL}/postingan`)
         .then((res) => res.json())
-        .then((posts)=> setPosts(posts.reverse()))}
+        .then((posts)=> setPosts(posts.reverse()))
+        .catch((error)=> {
+            console.error("masalah api euy:", error);
+        })}
     ,[])
+
+    
+    for(const e of posts){
+        console.log(e.isi);
+    }
 
     return(
         <>

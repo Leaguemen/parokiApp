@@ -16,4 +16,5 @@
 
 .pparag{
     padding-bottom: 5px;
+    overflow-wrap: break-word;
 }

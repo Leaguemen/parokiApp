@@ -16,17 +16,13 @@ import "../Styling/Table.css"
 
 export function Table(){
     const [umat, setUmat] = React.useState([]);
-    const [query,setQuery] = React.useState([]);
 
     React.useEffect(()=>{
-        fetch("/publicUmat")
+        fetch(`${process.env.REACT_APP_API_URL}/publicUmat`)
         .then((res) => res.json())
         .then((umat) => setUmat(umat))
+        .catch((e)=> console.error(`ada error : ${e}`))
     },[])
-
-    if(umat.length>0){
-        console.log(umat);
-    }
 
     const data = React.useMemo(()=>umat,[umat])
 

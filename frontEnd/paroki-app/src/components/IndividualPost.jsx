@@ -11,6 +11,16 @@ export function IndiviualPost({content}){
         return `${day}-${month}-${year}`;
     };
 
+    const convertLinks = (inputText) => {
+        // Regular expression to match URLs
+        const urlPattern = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gi;
+        return inputText.replace(urlPattern, (url) => {
+          return `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`;
+        });
+      };
+
+    const formattedIsi = convertLinks(content.isi).replace(/\n/g, '<br />');
+
     return(
         <>
             <div className="pContainer">
@@ -18,7 +28,7 @@ export function IndiviualPost({content}){
                 <div className="ptext">Author : {content.username}</div>
                 <div className="ptext">Tanggal Pembuatan : {formatDate(content.tanggal)}</div>
                 <hr/>
-                <div className="ptext pparag">{content.isi}</div>    
+                <div className="ptext pparag" dangerouslySetInnerHTML={{__html:formattedIsi}}/>    
             </div>
         </>
     )

@@ -7,10 +7,29 @@
     color: #435325;
 }
 
+.tableContainer{
+    display: flex;
+    justify-content: center;
+}
+
 
 .masterparent{
     width: 80%;
     margin: 0 auto;
     max-width: 80%;
     box-sizing: border-box;
+}
+
+.tombol {
+    position: fixed;
+    bottom: 0.5em;
+    right: 30px;
+    background-color: #708871;
+    color: #FEF3E2;
+    border-radius: 1em;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    transition: background-color 0.3s;
+    font-size: 1.5rem;
 }

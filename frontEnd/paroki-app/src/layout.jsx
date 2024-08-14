@@ -8,7 +8,7 @@ export function Layout(){
         <>
             <div className="pageContainer">
                 <Navbar/>
-                <main>
+                <main className="bottom">
                     <Outlet/>
                 </main>
             </div>

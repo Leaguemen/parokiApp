@@ -29,11 +29,11 @@ export function Navbar() {
             <Link to="https://docs.google.com/spreadsheets/d/12AKQerW2W67vRic5ValWN8ACHGwZXmY1MsvQFMXp-kE/edit?usp=sharing" target="_blank">
                 <button className="Tombol">Rundown</button>
             </Link>
-            <Link to="/peserta">
+            <Link to="https://docs.google.com/spreadsheets/d/1NZDwS6WG6Erkr3jTlJ0KbydN6SHIeihWwsVxhz7Z3Dg/edit?usp=sharing" target="_blank">
                 <button className="Tombol">Peserta</button>
             </Link>
-            <Link to="/profile">
-                <button className="Tombol">Profil</button>
+            <Link to="/formpage">
+                <button className="Tombol">Form</button>
             </Link>
         </div>
         <div className="lowStyle">
