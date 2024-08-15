@@ -1,0 +1,93 @@
+.login-container {
+    max-width: 400px;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .login-container h2 {
+    text-align: center;
+  }
+  
+  .login-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .login-container form div {
+    margin-bottom: 15px;
+  }
+  
+  .login-container form label {
+    margin-bottom: 5px;
+  }
+  
+  .login-container form .password-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .login-container form input {
+    padding: 8px;
+    font-size: 16px;
+  }
+
+  .error-popup {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ff4d4d;
+    border-radius: 5px;
+    background-color: #ffe6e6;
+    color: #ff4d4d;
+    text-align: center;
+  }
+  
+  .login-container form .password-container input {
+    flex: 1;
+  }
+  
+  .login-container form .password-container button {
+    margin-left: 10px;
+    padding: 8px;
+    font-size: 14px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .login-container form .password-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  .login-container form button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .login-container form button:hover {
+    background-color: #0056b3;
+  }
+
+  .hide{
+    visibility: hidden;
+  }
+
+  @media(max-width:438px){
+    .login-container{
+        margin-left: 10px;
+        margin-right: 10px; 
+    }
+
+  }
+  

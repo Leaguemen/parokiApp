@@ -1,20 +1,19 @@
 const express = require("express");
-
 const cors = require('cors');
-
 const mysql = require("mysql");
-
+const bodyParser = require("body-parser");
+const jwt = require("jsonwebtoken");
 const PORT = process.env.PORT || 3001;
-
 const app = express();
 
 app.use(cors());
+app.use(bodyParser.json());
 
 const connection = mysql.createConnection({
-  host: `${process.env.DB_HOST}`,
-  user: `${process.env.DB_USER}`,
-  password: `${process.env.DB_PASSWORD}`,
-  database: `${process.env.REACT_APP_API_URL}`
+  host: 'apinode.theodorusmisapaus.online',
+  user: 'theodoru_leaguemen',
+  password: ';sk(KaCo+j$O',
+  database: 'theodoru_parokiapp'
 });
 
 connection.connect(function(err){
@@ -23,6 +22,24 @@ connection.connect(function(err){
     console.log(err.code);
   }
 })
+
+
+const SECRET_KEY = '075c4f0a1a2a'
+const users = [
+  { id: 1, username: 'paroki', password: 'misapaus' }
+];
+app.post('/login', (req, res) => {
+  const { username, password } = req.body;
+
+  const user = users.find(u => u.username === username && u.password === password);
+  if (user) {
+    const jwtToken = jwt.sign({ id: user.id, username: user.username }, SECRET_KEY);
+    res.json({ message:"User authentication success",token: jwtToken });
+  } else {
+    res.status(400).json({ message: 'Invalid credentials' });
+  }
+});
+
 
 app.get("/test", (req, res) => {
     res.json({ message: "Connection to server establised." });
