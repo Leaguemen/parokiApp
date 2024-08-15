@@ -12,34 +12,33 @@ function Login() {
   const signIn = useSignIn();
   const navigate = useNavigate();
 
-  const handleSubmit = async () => {
-    const values={
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    
+    const values = {
       username: username,
       password: password
     };
 
-    try{
+    try {
       const response = await axios.post(
         `${process.env.REACT_APP_API_URL}/login`,
         values
-      )
-      signIn({
-        token: response.data.token,
-        expiresIn: 3600,
-        tokenType: "Bearer"
-      });
+      );
+      if (response.data.token) {
+        signIn({
+          token: response.data.token,
+          expiresIn: 3600,
+          tokenType: "Bearer"
+        });
+        navigate('/'); // Navigate to the home page
+      }
+    } catch (err) {
+      console.error(err);
+      setError('Username atau password salah !!!');
       setUsername('');
       setPassword('');
-      setError(''); // Clear error if login is successful
-      navigate('/'); // Navigate to the home page
-      
-    } catch (err){
-      console.error();
-      setError('Username atau password salah !!!');
     }
-
-    setUsername('');
-    setPassword('');
   };
 
   const togglePasswordVisibility = () => {
