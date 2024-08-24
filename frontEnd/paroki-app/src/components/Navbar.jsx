@@ -24,10 +24,10 @@ export function Navbar() {
         </div>
         <div className="ButtonContainer">
             <Link to="/">
-                <button className="Tombol">Pengumuman</button>
+                <button className="Tombol special">Dokumen & Foto</button>
             </Link>
-            <Link to="https://docs.google.com/spreadsheets/d/12AKQerW2W67vRic5ValWN8ACHGwZXmY1MsvQFMXp-kE/edit?usp=sharing" target="_blank">
-                <button className="Tombol">Rundown</button>
+            <Link to="/pengumuman">
+                <button className="Tombol">Pengumuman</button>
             </Link>
             <Link to="https://docs.google.com/spreadsheets/d/1NZDwS6WG6Erkr3jTlJ0KbydN6SHIeihWwsVxhz7Z3Dg/edit?usp=sharing" target="_blank">
                 <button className="Tombol">Peserta</button>

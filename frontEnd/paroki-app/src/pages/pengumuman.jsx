@@ -1,6 +1,5 @@
 import React from "react";
 import "../Styling/pengumuman.css"
-import Postingan from "../components/Postingan";
 import PostTable from "../components/Tablepost";
 
 
@@ -15,7 +14,7 @@ export const Pengumuman = () =>{
     <>
         <div className="masterparent">
             <div className="title">
-                PENGUMUMAN
+                Dokumen & Foto
             </div>
             {/* <div className="parentPost">
                 <Postingan/>

@@ -1,6 +1,6 @@
 import React from "react";
-import IndiviualPost from "./IndividualPost";
-import "../Styling/Posts.css"
+import { useTable } from "react-table";
+import "../Styling/Table.css"
 
 export function Forms(){
     const [posts,setPosts] = React.useState([]);
@@ -14,22 +14,77 @@ export function Forms(){
         })}
     ,[])
 
+
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const year = date.getFullYear();
+        return `${day}-${month}-${year}`;
+    };
     
-    for(const e of posts){
-        console.log(e.isi);
-    }
+    const data = React.useMemo(()=>posts,[posts])
+
+    const columns = React.useMemo(
+        () => [
+            {
+                Header: "Judul",
+                accessor: "title",
+                Cell: ({ cell: { value } }) => (
+                  <h2>
+                    {value}
+                  </h2>
+                ),              
+            },
+            {
+                Header: "Tanggal",
+                accessor: "tanggal",
+                Cell: ({cell: {value}}) => formatDate(value),
+            },
+            {
+                Header: "Link",
+                accessor: "isi",
+                Cell: ({ cell: { value } }) => (
+                  <a href={value} target="_blank" rel="noopener noreferrer">
+                    <h2>KLIK SINI</h2>
+                  </a>
+                )
+            }
+        ],[]
+    );
+
+    const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
+    useTable({ columns, data });
 
     return(
         <>
-        <div className="container">
-            <div>
-                {
-                    posts.map((post,index)=>(
-                        <IndiviualPost content={post} />
-                    ))
-                }
-            </div>
-        </div>
+      <div className="container">
+        <table {...getTableProps()}>
+          <thead>
+            {headerGroups.map((headerGroup) => (
+              <tr {...headerGroup.getHeaderGroupProps()}>
+                {headerGroup.headers.map((column) => (
+                  <th {...column.getHeaderProps()}>
+                    {column.render("Header")}
+                  </th>
+                ))}
+              </tr>
+            ))}
+          </thead>
+          <tbody {...getTableBodyProps()}>
+            {rows.map((row) => {
+              prepareRow(row);
+              return (
+                <tr {...row.getRowProps()}>
+                  {row.cells.map((cell) => (
+                    <td {...cell.getCellProps()} className="dataOrang"> {cell.render("Cell")} </td>
+                  ))}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
         </>
     )
 }

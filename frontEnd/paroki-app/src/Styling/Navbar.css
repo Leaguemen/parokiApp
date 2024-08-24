@@ -12,6 +12,7 @@
 }
 
 
+
 .Tombol:hover {
     background-color: #556b2f;
 }
@@ -113,7 +114,7 @@
 
 @media (max-width: 640px){
     .Tombol{
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
 
     .Banner{
@@ -139,6 +140,6 @@
 
 @media (max-width: 430px) {
     .Tombol{
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
 }

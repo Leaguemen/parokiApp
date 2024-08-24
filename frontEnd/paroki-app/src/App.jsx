@@ -7,6 +7,7 @@ import { Layout } from './layout';
 import Formpage from './pages/fomrpage';
 import Login from './pages/loginpage';
 import { RequireAuth } from 'react-auth-kit';
+import Newspage from './pages/newspage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
     <Router>
       <Routes>
         <Route element={<Layout/>}>
+          <Route path="/pengumuman" element={<RequireAuth loginPath='/login'> <Newspage/> </RequireAuth>}/>
           <Route path="/" element={<RequireAuth loginPath='/login'>
              <Pengumuman/>
            </RequireAuth>}></Route>
