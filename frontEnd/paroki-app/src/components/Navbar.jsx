@@ -24,7 +24,7 @@ export function Navbar() {
         </div>
         <div className="ButtonContainer">
             <Link to="/">
-                <button className="Tombol special">Dokumen & Foto</button>
+                <button className="Tombol special">Dokumen & Film</button>
             </Link>
             <Link to="/pengumuman">
                 <button className="Tombol">Pengumuman</button>

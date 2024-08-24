@@ -14,7 +14,7 @@ export const Pengumuman = () =>{
     <>
         <div className="masterparent">
             <div className="title">
-                Dokumen & Foto
+                Dokumen & Film
             </div>
             {/* <div className="parentPost">
                 <Postingan/>
